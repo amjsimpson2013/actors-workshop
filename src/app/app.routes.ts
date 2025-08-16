@@ -4,5 +4,9 @@ export const routes: Routes = [
     {
         path: 'home',
         loadComponent: () => import('./home/home')
+    },
+    {
+        path: 'events',
+        loadComponent: () => import('./events/events')
     }
 ];
