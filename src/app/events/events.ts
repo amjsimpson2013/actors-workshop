@@ -15,6 +15,6 @@ export default class Events {
   data: CalendarEvent[] = [];
 
   constructor() {
-    this.data = this.eventsService.getEventList();
+    this.data = this.eventsService.getTestEventList();
   }
 }
