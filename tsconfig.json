@@ -13,7 +13,10 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "rxjs/*": ["../nodemodules/rxjs/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -30,5 +33,6 @@
     {
       "path": "./tsconfig.spec.json"
     }
-  ]
+  ],
+  
 }

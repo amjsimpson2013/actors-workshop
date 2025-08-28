@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, DestroyRef, effect, inject, Signal } from '@angular/core';
 import { EventsService } from './data-access/events-service';
-import { CalendarEvent } from './data-access/events-model';
+import { CalendarEvent, GCalResponse } from './data-access/events-model';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -12,9 +12,12 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export default class Events {
   eventsService: EventsService = inject(EventsService);
-  data: CalendarEvent[] = [];
+  destroyRef: DestroyRef = inject(DestroyRef);
 
-  constructor() {
-    this.data = this.eventsService.getTestEventList();
-  }
+  eventsList = computed(() =>
+    this.eventsService
+      .events()
+  );
+
+  constructor() {}
 }

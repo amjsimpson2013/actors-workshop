@@ -1,4 +1,4 @@
-@for (calendarEvent of data; track $index) {
+@for (calendarEvent of eventsList(); track $index) {
     <mat-accordion>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -9,3 +9,4 @@
         </mat-expansion-panel>
     </mat-accordion>
 }
+
