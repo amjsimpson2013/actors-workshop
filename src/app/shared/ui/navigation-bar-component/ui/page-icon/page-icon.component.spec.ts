@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header-component';
+import { PageIconComponent } from './page-icon.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('PageIconComponent', () => {
+  let component: PageIconComponent;
+  let fixture: ComponentFixture<PageIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
+      imports: [PageIconComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(PageIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -37,8 +37,22 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.header-toolbar {
+.tertiary-color-toolbar-override {
   @include mat.toolbar-overrides((
     container-background-color: var(--mat-sys-on-tertiary-container)
   ))
+}
+
+.nav-bar-item-divider {
+  @include mat.divider-overrides((
+    color: var(--mat-sys-tertiary)
+  ))
+}
+
+.thick-rounded-underline-override {
+  @include mat.divider-overrides((
+    width: 1px,
+    color: var(--mat-sys-on-surface)
+  ));
+  border-radius: 1px;
 }
