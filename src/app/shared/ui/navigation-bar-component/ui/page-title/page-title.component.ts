@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 
 @Component({
@@ -13,6 +13,9 @@ export class PageTitleComponent {
   @Input() extend: boolean = false;
   @Input() pageTitle: string = "";
   @Input() pagePath: string = "";
+
+  private router = inject(Router);
+  
 
   animateMouseEnter(event: any) {
     const pageTitleElement = event.target as Element;
@@ -33,4 +36,8 @@ export class PageTitleComponent {
       duration: 1
     });
   }
+
+  navigate() {
+    this.router.navigateByUrl(this.pagePath, { replaceUrl: true })
+  } 
 }

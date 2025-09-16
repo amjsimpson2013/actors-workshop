@@ -36,9 +36,9 @@ constructor() {
         rotationX: -100,
         transformOrigin: "50% 50% -160px",
         opacity: 0,
-        duration: .8,
+        duration: .5,
         ease: "power3",
-        stagger: 0.25
+        stagger: 0.1
       }
     );
   }
