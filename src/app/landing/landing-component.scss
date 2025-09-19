@@ -1,0 +1,23 @@
+.background{
+    position: relative;
+}
+
+.logo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

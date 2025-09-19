@@ -1,0 +1,17 @@
+//container properties
+.title {
+    width: 100vw;
+    height: 100vh;
+    font-size: 5vw;
+    align-content: center;
+}
+
+//text properties
+.title {
+    line-height: 1.2;
+    text-align: center;
+    font-weight: bold;
+    opacity: 75%;
+    color: transparent;
+    text-shadow: 1px 1px 10px rgba(255,162,57,1), 1px 1px rgba(255,162,57,.4);
+}

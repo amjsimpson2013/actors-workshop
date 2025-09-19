@@ -32,7 +32,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/tokens.scss"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",

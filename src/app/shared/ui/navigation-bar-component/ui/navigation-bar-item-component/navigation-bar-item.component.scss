@@ -1,0 +1,37 @@
+.navigation-item-extended-grid {
+    display: grid;
+    grid-template-columns: 50px 20vw;
+    grid-template-rows: 50px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.navigation-item-grid {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.page-icon {
+    grid-area: 1/1/2/2;
+    align-content: center;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.page-title {
+    grid-area: 1/2/2/3;
+    align-content: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.page-description {
+    grid-area: 2/2/3/3;
+}
+
+.grid-height {
+    height: inherit;
+}

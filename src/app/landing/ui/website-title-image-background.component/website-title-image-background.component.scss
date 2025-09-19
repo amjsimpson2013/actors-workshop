@@ -1,0 +1,14 @@
+.background-image {
+    margin: 0;
+    height: 100vh;
+    background-image: url('../../../../../public/assets/header-image.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.image-mask {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0;
+}
