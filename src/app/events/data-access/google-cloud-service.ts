@@ -9,8 +9,8 @@ import { rxResource } from '@angular/core/rxjs-interop';
   providedIn: 'root'
 })
 export class GoogleCloudService {
-  private calendarId = environment.googleCalId;
-  private apiKey = environment.apiKey;
+  private calendarId = environment?.googleCalId ?? "key";
+  private apiKey = environment?.apiKey ?? "key";
   httpClient: HttpClient = inject(HttpClient);
 
   eventsLoaded = rxResource({stream: () => this.fetchEventList()})

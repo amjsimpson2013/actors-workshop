@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationBarItemComponent } from './navigation-bar-item.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('NavigationBarItemComponent', () => {
   let component: NavigationBarItemComponent;
@@ -8,7 +9,8 @@ describe('NavigationBarItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationBarItemComponent]
+      imports: [NavigationBarItemComponent],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

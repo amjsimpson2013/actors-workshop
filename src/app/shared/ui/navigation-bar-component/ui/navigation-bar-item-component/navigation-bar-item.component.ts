@@ -12,5 +12,5 @@ import { PageDescriptionComponent } from "../page-description/page-description.c
 })
 export class NavigationBarItemComponent {
   @Input() extend: boolean = false;
-  @Input() page!: ToolbarLink;
+  @Input() page?: ToolbarLink = undefined;
 }

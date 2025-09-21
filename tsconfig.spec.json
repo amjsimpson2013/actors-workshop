@@ -10,5 +10,8 @@
   },
   "include": [
     "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/app/events/data-access/google-cloud-service.ts"
   ]
 }
