@@ -15,10 +15,10 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Create Environment
-        run: cd src
-             mkdir environments
-             touch environment.development.ts
-             cd ..
+      - run: cd src
+      - run: mkdir environments
+      - run: touch environment.development.ts
+      - run: cd ..
       - name: Build
         run: npm run build --if-present
       - name: Test
