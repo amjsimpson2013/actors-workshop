@@ -9,8 +9,9 @@ import { rxResource } from '@angular/core/rxjs-interop';
   providedIn: 'root'
 })
 export class GoogleCloudService {
-  private calendarId = environment.googleCalId;
-  private apiKey = environment.apiKey;
+  private baseApiUrl = environment.baseApiUrl;
+  private eventsUrl = environment.eventsUrl;
+
   httpClient: HttpClient = inject(HttpClient);
 
   eventsLoaded = rxResource({stream: () => this.fetchEventList()})
@@ -25,12 +26,12 @@ export class GoogleCloudService {
       .set('singleEvents', true)
       .set('orderBy', "startTime");
 
-    const url = new URL(`https://www.googleapis.com/calendar/v3/calendars/${this.calendarId}/events?key=${this.apiKey}`);
+    const url = new URL(this.baseApiUrl + this.eventsUrl);
 
-    return this.httpClient.get<Object>(url.toString(), { params: params })
+    return this.httpClient.get<Object>(url.toString())
       .pipe(
-        map((response) => response ? (JSON.parse(JSON.stringify(response)) as GCalResponse) : {} as GCalResponse),
-        map((response) => { return response ? response.items : [] })
+        map((response) => response ? (JSON.parse(JSON.stringify(response)) as CalendarEvent[]) : {} as CalendarEvent[]),
+        map((response) => { return response ? response : [] })
       );
   }
 }
