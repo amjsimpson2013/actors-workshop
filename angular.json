@@ -61,13 +61,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "assets": [
+              "fileReplacements": [
                 {
-                  "glob": "**/*",
-                  "input": "src/app/",
-                  "ignore": [
-                    "events"
-                  ]
+                  "replace": "src/app/events/data-access/google-cloud-service.ts",
+                  "with": "src/app/events/data-access/google-cloud-service.test.ts"
                 }
               ]
             },
