@@ -60,7 +60,14 @@
             "test": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "assets": [
+                {
+                  "ignore": [
+                    "**/**/events"
+                  ]
+                }
+              ]
             },
             "development": {
               "optimization": false,
