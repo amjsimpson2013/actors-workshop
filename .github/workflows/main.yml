@@ -18,7 +18,8 @@ jobs:
         run: | 
           mkdir \home\runner\actors-workshop\actors-workshop\src\environments && 
           echo "${{ secrets.ENV_FILE }}" > \home\runner\work\actors-workshop\actors-workshop\src\environments\environment.development.ts &&
-          echo "${{ secrets.ENV_FILE }}" > \home\runner\work\actors-workshop\actors-workshop\src\environments\environment.ts
+          echo "${{ secrets.ENV_FILE }}" > \home\runner\work\actors-workshop\actors-workshop\src\environments\environment.ts &&
+          [ -f /src/environments/environment.development.ts ]
       - name: Build
         run: npm run build --if-present
       - name: Test
