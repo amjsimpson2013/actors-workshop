@@ -84,6 +84,9 @@
             },
             "development": {
               "buildTarget": "actors-workshop:build:development"
+            },
+            "test": {
+              "buildTarget": "actors-workshop:build:test"
             }
           },
           "defaultConfiguration": "development"
