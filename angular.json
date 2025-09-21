@@ -57,6 +57,11 @@
               ],
               "outputHashing": "all"
             },
+            "test": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
