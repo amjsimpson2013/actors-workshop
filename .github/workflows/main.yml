@@ -15,6 +15,6 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Build
-        run: npm run build --configuration test --if-present
+        run: npm run build:test --if-present
       - name: Test
         run: npm test
