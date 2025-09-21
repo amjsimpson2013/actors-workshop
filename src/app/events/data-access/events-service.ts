@@ -20,4 +20,6 @@ export class EventsService {
     source: this.loadedEvents.value,
     computation: (events) => events ?? []
   });
+
+  constructor() {console.log(this.events());}
 }
