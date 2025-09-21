@@ -2,19 +2,19 @@
     <app-page-icon
         class="page-icon" 
         [extend]="extend" 
-        [pageIcon]="page.icon">
+        [pageIcon]="page?.icon ?? ''">
     </app-page-icon>
     <app-page-title 
         class="page-title" 
         [extend]="extend" 
-        [pageTitle]="page.title"
-        [pagePath]="page.path">
+        [pageTitle]="page?.title ?? ''"
+        [pagePath]="page?.path ?? ''">
     </app-page-title>
 
     @if(extend) {
         <app-page-description 
             class="page-description"
-            [pageDescription]="page.description">
+            [pageDescription]="page?.description ?? ''">
         </app-page-description>
     }
 </div>

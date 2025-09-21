@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import Events from './events';
+import { provideZonelessChangeDetection } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 
-import { Events } from './events';
 
 describe('Events', () => {
   let component: Events;
@@ -8,7 +10,8 @@ describe('Events', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Events]
+      imports: [Events],
+      providers: [provideZonelessChangeDetection(), provideHttpClient()]
     })
     .compileComponents();
 

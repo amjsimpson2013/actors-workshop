@@ -57,6 +57,17 @@
               ],
               "outputHashing": "all"
             },
+            "test": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/events/data-access/google-cloud-service.ts",
+                  "with": "src/app/events/data-access/google-cloud-service.test.ts"
+                }
+              ]
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -68,8 +79,7 @@
                 }
               ]
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
         "serve": {
           "builder": "@angular/build:dev-server",
@@ -79,6 +89,9 @@
             },
             "development": {
               "buildTarget": "actors-workshop:build:development"
+            },
+            "test": {
+              "buildTarget": "actors-workshop:build:test"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +112,19 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "karmaConfig": "karma.conf.js"
+          },
+          "configurations": {
+            "test": {
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/events/data-access/google-cloud-service.ts",
+                  "with": "src/app/events/data-access/google-cloud-service.test.ts"
+                }
+              ]
+            }
           }
         }
       }

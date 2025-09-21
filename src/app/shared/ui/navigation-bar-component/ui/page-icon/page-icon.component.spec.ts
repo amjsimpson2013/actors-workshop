@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageIconComponent } from './page-icon.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('PageIconComponent', () => {
   let component: PageIconComponent;
@@ -8,7 +9,8 @@ describe('PageIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageIconComponent]
+      imports: [PageIconComponent],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

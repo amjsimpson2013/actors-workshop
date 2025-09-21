@@ -1,0 +1,20 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install Packages
+        run: npm ci
+      - name: Build
+        run: npm run build:test --if-present
+      - name: Test
+        run: npm run test:test
