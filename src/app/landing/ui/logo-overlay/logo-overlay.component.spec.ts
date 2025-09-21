@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LogoOverlayComponent } from './logo-overlay.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('LogoOverlayComponent', () => {
   let component: LogoOverlayComponent;
@@ -8,7 +9,8 @@ describe('LogoOverlayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LogoOverlayComponent]
+      imports: [LogoOverlayComponent],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

@@ -8,8 +8,6 @@ import { rxResource } from '@angular/core/rxjs-interop';
   providedIn: 'root'
 })
 export class GoogleCloudService {
-  httpClient: HttpClient = inject(HttpClient);
-
   eventsLoaded = rxResource({stream: () => this.fetchEventList()})
 
   fetchEventList(): Observable<CalendarEvent[]> {

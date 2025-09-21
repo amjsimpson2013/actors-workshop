@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageTitleComponent } from './page-title.component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('PageTitleComponent', () => {
   let component: PageTitleComponent;
@@ -8,7 +9,8 @@ describe('PageTitleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageTitleComponent]
+      imports: [PageTitleComponent],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

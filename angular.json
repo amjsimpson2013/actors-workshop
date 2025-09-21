@@ -113,6 +113,17 @@
             "styles": [
               "src/styles.scss"
             ]
+          },
+          "configurations": {
+            "test": {
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/events/data-access/google-cloud-service.ts",
+                  "with": "src/app/events/data-access/google-cloud-service.test.ts"
+                }
+              ]
+            }
           }
         }
       }
