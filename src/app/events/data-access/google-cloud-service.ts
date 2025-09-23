@@ -14,11 +14,11 @@ export class GoogleCloudService {
 
   eventsLoaded = rxResource({stream: () => this.fetchEventList()});
 
-  fetchEventList(): Observable<CalendarEvent[]> {
+  fetchEventList(): Observable<CalendarEvent[] | undefined> {
     return this.httpClient.get(this.eventsUrl)
       .pipe(
         map((response) => response ? (JSON.parse(JSON.stringify(response)) as CalendarEvent[]) : {} as CalendarEvent[]),
-        map((response) => { return response ? response : [] })
+        map((response) => { return response ? response : undefined })
       );
   }
 }
