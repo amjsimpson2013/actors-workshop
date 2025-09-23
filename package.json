@@ -5,10 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:test": "ng build --configuration=test",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:test": "ng test --configuration=test --no-watch --no-progress --browsers=ChromeHeadless",
     "serve:ssr:actors-workshop": "node dist/actors-workshop/server/server.mjs"
   },
   "prettier": {

@@ -8,5 +8,9 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'landing',
     renderMode: RenderMode.Client
+  },
+  {
+    path: 'events',
+    renderMode: RenderMode.Server
   }
 ];
