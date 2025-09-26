@@ -12,7 +12,6 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts",
-    "src/app/events/data-access/google-cloud-service.ts"
+    "src/**/*.spec.ts"
   ]
 }

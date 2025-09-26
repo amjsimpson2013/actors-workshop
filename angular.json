@@ -57,27 +57,10 @@
               ],
               "outputHashing": "all"
             },
-            "test": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/app/events/data-access/google-cloud-service.ts",
-                  "with": "src/app/events/data-access/google-cloud-service.test.ts"
-                }
-              ]
-            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "sourceMap": true
             }
           }
         },
@@ -85,13 +68,12 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "actors-workshop:build:production"
+              "buildTarget": "actors-workshop:build:production",
+              "proxyConfig": "src/configs/proxy.conf.json"
             },
             "development": {
-              "buildTarget": "actors-workshop:build:development"
-            },
-            "test": {
-              "buildTarget": "actors-workshop:build:test"
+              "buildTarget": "actors-workshop:build:development",
+              "proxyConfig": "src/configs/dev-proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

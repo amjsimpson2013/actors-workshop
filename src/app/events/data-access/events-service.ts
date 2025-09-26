@@ -21,5 +21,10 @@ export class EventsService {
     computation: (events) => events ?? []
   });
 
-  constructor() {console.log(this.events());}
+  error = linkedSignal({
+    source: this.loadedEvents.error,
+    computation: (err) => err ?? undefined
+  })
+
+  constructor() {}
 }

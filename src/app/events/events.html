@@ -1,12 +1,20 @@
-@for (calendarEvent of eventsList(); track $index) {
-    <mat-accordion>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title><mat-icon>event</mat-icon></mat-panel-title>
-                <mat-panel-description>{{calendarEvent.summary}}</mat-panel-description>
-            </mat-expansion-panel-header>
-            {{calendarEvent.description}}
-        </mat-expansion-panel>
-    </mat-accordion>
+@if(eventsList().length > 0) {
+    @for (calendarEvent of eventsList(); track $index) {
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title><mat-icon>event</mat-icon></mat-panel-title>
+                    <mat-panel-description>{{calendarEvent.summary}}</mat-panel-description>
+                </mat-expansion-panel-header>
+                {{calendarEvent.description}}
+            </mat-expansion-panel>
+        </mat-accordion>
+    }
+} @else if (error()) {
+    <p><strong>{{error()?.name}} - {{error()?.cause}}</strong></p>
+    <p>{{error()?.message}}</p>
+    <br>
+    <p>{{error()?.stack}}</p>
 }
+
 
