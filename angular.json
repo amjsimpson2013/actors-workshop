@@ -94,8 +94,7 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "karmaConfig": "karma.conf.js"
+            ]
           },
           "configurations": {
             "test": {
