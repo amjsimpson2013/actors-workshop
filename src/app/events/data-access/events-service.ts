@@ -1,20 +1,19 @@
-import { inject, Injectable, linkedSignal } from '@angular/core';
+import { DestroyRef, inject, Injectable, linkedSignal } from '@angular/core';
 import { CalendarEvent } from './events-model';
-import { GoogleCloudService } from './google-cloud-service';
-
-export interface EventsState {
-  eventItems: CalendarEvent[];
-  loaded: boolean;
-  error: string;
-}
+import { HttpClient } from '@angular/common/http';
+import { rxResource, takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { catchError, EMPTY, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventsService {
-  private googleCloudService = inject(GoogleCloudService);
+  private eventsUrl = 'api/events';
 
-  loadedEvents = this.googleCloudService.eventsLoaded;
+  httpClient: HttpClient = inject(HttpClient);
+  destroyRef: DestroyRef = inject(DestroyRef);
+
+  loadedEvents = rxResource({stream: () => this.fetchEventList()});
 
   events = linkedSignal({
     source: this.loadedEvents.value,
@@ -27,4 +26,14 @@ export class EventsService {
   })
 
   constructor() {}
+
+  fetchEventList(): Observable<CalendarEvent[] | undefined > {
+    return this.httpClient.get(this.eventsUrl)
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        map((response) => response ? (JSON.parse(JSON.stringify(response))) as CalendarEvent[] : undefined),
+        map((response) => { return response ? response : undefined }),
+        catchError(() => EMPTY)
+      );  
+  }
 }
