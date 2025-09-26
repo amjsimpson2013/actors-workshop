@@ -69,6 +69,7 @@
           "configurations": {
             "production": {
               "buildTarget": "actors-workshop:build:production",
+              "proxyConfig": "src/configs/proxy.conf.json",
               "proxyConfig": "src/configs/proxy.conf.json"
             },
             "development": {
