@@ -5,31 +5,31 @@ export const routes: Routes = [
         path: 'landing',
         loadComponent: () => import('./landing/landing-component'),
         title: 'Landing',
-        data: { showInToolbar: false, icon: null, description: null }
+        data: { showNav: false, showInToolbar: false, icon: null, description: null }
     },
     {
         path: 'home',
         loadComponent: () => import('./home/home'),
         title: 'Home',
-        data: { showInToolbar: true, icon: "home", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
+        data: { showNav: true, showInToolbar: true, icon: "home", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
     },
     {
         path: 'events',
         loadComponent: () => import('./events/events'),
         title: 'Events',
-        data: { showInToolbar: true, icon: "event", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
+        data: { showNav: true, showInToolbar: true, icon: "event", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
     },
     {
         path: 'about',
         title: 'About Us',
         loadComponent: () => import('./home/home'),
-        data: { showInToolbar: true, icon: "diversity_3", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
+        data: { showNav: true, showInToolbar: true, icon: "diversity_3", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
     },
     {
         path: 'contact',
         title: 'Contact Us',
         loadComponent: () => import('./home/home'),
-        data: { showInToolbar: true, icon: "rate_review", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
+        data: { showNav: true, showInToolbar: true, icon: "rate_review", description: "Lorem ipsum dolor sit amet consectetur adipiscing elit." }
     },
     {
         path: '',

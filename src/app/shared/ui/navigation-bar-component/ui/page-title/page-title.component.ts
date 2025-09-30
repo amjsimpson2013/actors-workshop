@@ -1,6 +1,6 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 
 @Component({

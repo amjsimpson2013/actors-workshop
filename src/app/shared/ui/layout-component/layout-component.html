@@ -1,0 +1,6 @@
+@if(useLayoutWithNavBar) {
+    <app-navigation-bar class="nav-bar" [extend]="false"></app-navigation-bar>
+    <router-outlet/>
+} @else {
+    <router-outlet/>
+}
