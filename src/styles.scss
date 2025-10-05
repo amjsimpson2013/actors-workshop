@@ -8,14 +8,22 @@
 @use "./theme-colors.scss" as theme-colors;
 
 html {
+
   @include mat.theme((
     color: (
-      theme-type: dark,
       primary: theme-colors.$primary-palette,
       tertiary: theme-colors.$tertiary-palette,
     ),
     typography: Playfair Display,
     density: 0,
+  ));
+
+  @include mat.toolbar-overrides((
+    container-background-color: var(--mat-sys-primary-container),
+  ));
+
+  @include mat.divider-overrides((
+    color: var(--mat-sys-on-surface)
   ));
 }
 
@@ -23,7 +31,7 @@ body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
   // user's system settings.
-  // color-scheme: dark;
+  color-scheme: dark;
 
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
@@ -39,26 +47,3 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Playfair Display, "Helvetica Neue", sans-serif; }
-.tertiary-color-toolbar-override {
-  @include mat.toolbar-overrides((
-    container-background-color: var(--mat-sys-neutral)
-  ))
-}
-
-.nav-bar-item-divider {
-  @include mat.divider-overrides((
-    color: var(--mat-sys-primary)
-  ))
-}
-
-.thick-rounded-underline-override {
-  @include mat.divider-overrides((
-    width: 1px,
-    color: var(--mat-sys-primary)
-  ));
-  border-radius: 1px;
-}
-
-.nav-bar-font-color-override {
-  color: var(--mat-sys-primary);
-}

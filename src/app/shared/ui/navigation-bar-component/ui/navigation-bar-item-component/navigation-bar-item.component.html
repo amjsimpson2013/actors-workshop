@@ -1,19 +1,26 @@
-<div [class]="{'navigation-item-extended-grid': extend, 'navigation-item-grid': !extend, 'grid-height': true }">
+<div 
+    class="navigation-item-grid"
+    [class.extend]="extend"
+    [class.simple]="!extend"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()">
     <app-page-icon
         class="page-icon" 
         [extend]="extend" 
-        [pageIcon]="page?.icon ?? ''">
+        [pageIcon]="page?.icon ?? ''"
+        [isActive]="pageIsActive">
     </app-page-icon>
     <app-page-title 
         class="page-title" 
         [extend]="extend" 
-        [pageTitle]="page?.title ?? ''"
-        [pagePath]="page?.path ?? ''">
+        [pageTitle]="page?.title?.toString() ?? ''"
+        [pagePath]="page?.path ?? ''"
+        [isActive]="pageIsActive">
     </app-page-title>
 
     @if(extend) {
         <app-page-description 
-            class="page-description"
+            [class.description]="extend"
             [pageDescription]="page?.description ?? ''">
         </app-page-description>
     }

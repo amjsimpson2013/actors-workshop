@@ -1,14 +1,14 @@
-.navigation-item-extended-grid {
+.navigation-item-grid.extend {
     display: grid;
-    grid-template-columns: 50px 20vw;
+    grid-template-columns: 50px 1fr;
     grid-template-rows: 50px 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 
-.navigation-item-grid {
+.navigation-item-grid.simple {
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 30px 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -28,10 +28,10 @@
     margin-top: 5px;
 }
 
-.page-description {
+.description {
     grid-area: 2/2/3/3;
 }
 
-.grid-height {
+.navigation-item-grid {
     height: inherit;
 }

@@ -1,0 +1,19 @@
+.header {
+    width: 100%;
+    height: inherit;
+}
+
+.image-container {
+    height: 10vh;
+    width: fit-content;
+}
+
+.logo {
+    height: inherit;
+}
+
+.theme-toggle {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

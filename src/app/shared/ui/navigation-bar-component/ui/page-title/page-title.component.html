@@ -1,8 +1,12 @@
 <a 
+#titleLink
 class="page-title" 
-(click)= "navigate()"
-(mouseenter)="animateMouseEnter($event)" 
-(mouseleave)="animateMouseLeave($event)">
+[class.active]="isActive()"
+(click)= "navigate()">
     {{pageTitle}}
-    <mat-divider class="page-title-underline thick-rounded-underline-override"></mat-divider>
+    <mat-divider 
+        id="underline" 
+        class="page-title-underline"
+        [class.active]="isActive()">
+    </mat-divider>
 </a>

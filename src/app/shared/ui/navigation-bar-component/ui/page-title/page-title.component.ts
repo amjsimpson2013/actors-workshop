@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, computed, ElementRef, inject, input, Input, InputSignal, viewChild } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
@@ -13,28 +13,27 @@ export class PageTitleComponent {
   @Input() extend: boolean = false;
   @Input() pageTitle: string = "";
   @Input() pagePath: string = "";
+  isActive: InputSignal<boolean> = input(false);
 
-  private router = inject(Router);
+  private router: Router = inject(Router);
+
+  titleLink = viewChild<ElementRef>('titleLink');
+  titleUnderline = computed(() => this.titleLink()?.nativeElement?.children['underline']);
   
-
-  animateMouseEnter(event: any) {
-    const pageTitleElement = event.target as Element;
-    const underline = pageTitleElement.querySelector(".page-title-underline");
-    
-    gsap.to(underline, {
-      width: "50%",
-      duration: 1
-    });
+  public animateMouseEnter() {
+    if (!this.isActive()) {
+      gsap.to(this.titleUnderline(), {
+        width: "80%"
+      });
+    } 
   }
 
-  animateMouseLeave(event: any) {
-    const pageTitleElement = event.target as Element;
-    const underline = pageTitleElement.querySelector(".page-title-underline");
-    
-    gsap.to(underline, {
-      width: "0%",
-      duration: 1
-    });
+  public animateMouseLeave() {
+    if (!this.isActive()) {
+      gsap.to(this.titleUnderline(), {
+        width: "0%"
+      });
+    }
   }
 
   navigate() {

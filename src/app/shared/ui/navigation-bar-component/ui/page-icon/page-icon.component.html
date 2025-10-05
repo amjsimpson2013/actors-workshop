@@ -1,1 +1,7 @@
-<mat-icon [class]="{'page-icon-large': extend, 'page-icon-medium': !extend}">{{pageIcon}}</mat-icon>
+<mat-icon 
+    class="page-icon" 
+    [class.extend]="extend" 
+    [class.simple]="!extend" 
+    [class.active]="isActive()">
+        {{pageIcon}}
+</mat-icon>
