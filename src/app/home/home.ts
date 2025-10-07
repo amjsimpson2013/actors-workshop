@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import Events from '../events/events';
+import { AdvertComponent } from "./ui/advert-component/advert-component";
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrl: './home.scss',
-  imports: []
+  imports: [AdvertComponent, MatDividerModule]
 })
 export default class Home {
 
