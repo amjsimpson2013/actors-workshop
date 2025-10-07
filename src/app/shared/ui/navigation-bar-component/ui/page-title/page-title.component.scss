@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 .page-title {
     font-size: x-large;
     color: inherit;
@@ -9,4 +11,16 @@
     margin-top: 2px;
     width: 0px;
     justify-self: center;
+}
+
+.page-title-underline.active {
+    width: 80%;
+    @include mat.divider-overrides((
+        color: var(--mat-sys-inverse-on-surface)
+    ));
+}
+
+.page-title.active {
+    color: var(--mat-sys-inverse-on-surface);
+    cursor: default;
 }

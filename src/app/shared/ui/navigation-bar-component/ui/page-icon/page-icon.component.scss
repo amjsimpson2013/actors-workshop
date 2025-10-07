@@ -1,8 +1,13 @@
-.page-icon-large {
+.page-icon.extend {
     font-size: 45px;
     overflow: unset;
 }
 
-.page-icon-medium {
-    font-size: 20px;
+.page-icon.simple {
+    font-size: 25px;
+    padding-right: 5px;
+}
+
+.page-icon.active {
+    color: var(--mat-sys-inverse-on-surface);
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input, InputSignal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -10,4 +10,5 @@ import { MatIconModule } from '@angular/material/icon';
 export class PageIconComponent {
   @Input() extend: boolean = false;
   @Input() pageIcon: string = "";
+  isActive: InputSignal<boolean> = input(false);
 }

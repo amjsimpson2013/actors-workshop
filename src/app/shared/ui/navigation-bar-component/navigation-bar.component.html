@@ -1,10 +1,14 @@
-<mat-toolbar class="tertiary-color-toolbar-override nav-bar">
+<mat-toolbar 
+    class="nav-bar"
+    [class.extended]="extend"
+    [class.simple]="!extend">
     @for (link of pageLinks; track $index) {
         <app-navigation-bar-item 
             [extend]="extend" 
-            [page]="link">
+            [page]="link"
+            [activeRoute]="activeRoute()">
         </app-navigation-bar-item>
-        @if (extend && $index < pageLinks.length - 1) {
+        @if ($index < pageLinks.length - 1) {
             <mat-divider 
                 class="nav-bar-item-divider" 
                 [vertical]="true">

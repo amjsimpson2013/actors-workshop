@@ -1,0 +1,11 @@
+<button matFab (click)="setActiveTheme()" class="icon-button">
+    @switch (currentTheme) {
+        @case ('dark') {
+            <mat-icon>light_mode</mat-icon>
+        } @case ('light') {
+            <mat-icon>dark_mode</mat-icon>
+        } @default {
+            <mat-icon>light_mode</mat-icon>
+        }
+    }
+</button>
