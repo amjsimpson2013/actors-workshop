@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import CommonLayoutComponent from './common-layout-component';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('CommonLayoutComponent', () => {
   let component: CommonLayoutComponent;
@@ -7,7 +8,10 @@ describe('CommonLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonLayoutComponent]
+      imports: [CommonLayoutComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+      ]
     })
     .compileComponents();
 

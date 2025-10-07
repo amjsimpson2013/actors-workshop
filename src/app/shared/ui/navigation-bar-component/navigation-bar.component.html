@@ -6,7 +6,7 @@
         <app-navigation-bar-item 
             [extend]="extend" 
             [page]="link"
-            [onRouteChange]="onRouteChange()">
+            [activeRoute]="activeRoute()">
         </app-navigation-bar-item>
         @if ($index < pageLinks.length - 1) {
             <mat-divider 

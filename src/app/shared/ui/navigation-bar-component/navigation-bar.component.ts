@@ -22,11 +22,11 @@ export class NavigationBarComponent {
 
   pageLinks: ExtendedRoutes = commonRoutes;
 
-  onRouteChange$: Observable<number> = this.router.events.pipe(
+  onRouteChange$: Observable<string> = this.router.events.pipe(
       takeUntilDestroyed(this.destroyRef),
       filter((event) => event instanceof NavigationEnd),
       distinctUntilChanged((prev, curr) => prev.url === curr.url),
-      map((e) => { return e.id }));
+      map((e) => { return e.url }));
 
-  onRouteChange: Signal<number> = toSignal(this.onRouteChange$, {initialValue: -1});
+  activeRoute: Signal<string> = toSignal(this.onRouteChange$, {initialValue: ''});
 }

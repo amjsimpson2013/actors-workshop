@@ -1,6 +1,6 @@
-import { Component, computed, ElementRef, inject, input, Input, InputSignal, viewChild } from '@angular/core';
+import { Component, computed, ElementRef, input, Input, InputSignal, viewChild } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 
 @Component({
@@ -14,8 +14,6 @@ export class PageTitleComponent {
   @Input() pageTitle: string = "";
   @Input() pagePath: string = "";
   isActive: InputSignal<boolean> = input(false);
-
-  private router: Router = inject(Router);
 
   titleLink = viewChild<ElementRef>('titleLink');
   titleUnderline = computed(() => this.titleLink()?.nativeElement?.children['underline']);
@@ -35,8 +33,5 @@ export class PageTitleComponent {
       });
     }
   }
-
-  navigate() {
-    this.router.navigateByUrl(this.pagePath, { replaceUrl: true })
-  } 
+ 
 }
