@@ -46,4 +46,76 @@ body {
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Playfair Display, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: 
+  Playfair Display, "Helvetica Neue", sans-serif;
+
+  
+}
+
+.custom-tab-header {
+  margin-top: 20px;
+
+  @include mat.tabs-overrides((
+        divider-height: 0px,
+        active-indicator-height: 48px,
+        active-indicator-shape: 100px,
+        active-hover-indicator-color: rgba(0,0,0,0),
+        active-indicator-color: var(--mat-sys-on-primary),
+        active-ripple-color: rgb(255,162,57),
+        inactive-ripple-color: rgb(255,162,57)
+  ));
+  
+  .mat-mdc-tab-header{
+    height:70px;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .mat-mdc-tab-label-container {
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-mdc-tab-list {
+    flex-grow: 1;
+  }
+
+  .mat-mdc-tab-labels {
+    width: 80vw;
+    place-self: center;
+    background-color: var(--mat-sys-primary-container);
+    border-radius: 100px;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-offset: 5px;
+    border-style: solid;
+    border-width: 2px;
+    outline-color: var(--mat-sys-surface-bright);
+    border-color: var(--mat-sys-surface-bright);
+  }
+
+  .mat-mdc-tab .mdc-tab__ripple::before{
+    border-radius: 100px;
+  }
+
+  .mat-mdc-tab:hover .mdc-tab__ripple::before{
+    opacity: .2;
+  }
+
+  .mdc-tab--active {
+      font-size: var(--mat-sys-title-medium-size);
+  }
+
+  .mdc-tab-indicator__content--underline {
+    box-shadow: inset 0px 0px 5px 0px rgba(255,162,57,1), inset 0px 0px 20px 5px rgba(255,162,57,.4);
+    align-self: unset !important;
+    box-sizing: unset;
+    border-top-style: unset;
+  }
+
+  
+}
