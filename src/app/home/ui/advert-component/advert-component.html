@@ -1,0 +1,17 @@
+<mat-tab-group class="custom-tab-header" headerPosition="below" mat-stretch-tabs="true" mat-align-tabs="center">
+  @for (ad of ads(); track ad; let index = $index) {
+    <mat-tab [label]="ad.name">
+      <div class="tab-group-content-grid">
+        <div class="information-container">
+          <div class="summary-text">{{ad.summary}}</div>
+          <div class="button-container">
+            <a class="link-button">Details<mat-icon>arrow_forward</mat-icon></a>
+          </div>
+        </div>
+        <div class="image-container">
+          <img [src]="getImageUri(ad)" [alt]="ad.name" class="image">
+        </div>
+      </div>
+    </mat-tab>
+  }
+</mat-tab-group>
