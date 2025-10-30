@@ -50,8 +50,6 @@ body {
   margin: 0; 
   font-family: 
   Playfair Display, "Helvetica Neue", sans-serif;
-
-  
 }
 
 .custom-tab-header {
@@ -116,6 +114,27 @@ body {
     box-sizing: unset;
     border-top-style: unset;
   }
+}
 
-  
+.blog-post {
+  @include mat.card-overrides((
+    outlined-outline-color: var(--mat-sys-surface-bright),
+    title-text-line-height: 1
+  ));
+
+  .mat-mdc-card-header {
+    padding: 10px 10px 0px;
+  }
+
+  .mat-divider {
+    width: 99%;
+    align-self: center;
+    border-top-color: var(--mat-sys-surface-bright);
+  }
+}
+
+.page-divider {
+  @include mat.divider-overrides((
+    color: var(--mat-sys-surface-bright)
+  ))
 }

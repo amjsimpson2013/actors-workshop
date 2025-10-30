@@ -1,0 +1,13 @@
+@for (post of posts(); track $index) {
+    <mat-card appearance="outlined" class="blog-post post-container">
+        <mat-card-header>
+            <mat-card-title class="post-title">{{'Actor\'s Workshop of West Michgan Facebook Page - ' + post.formattedDate}}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="post-body">
+            <div>{{post.message}}</div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-footer class="post-footer">Checkout the post on Facebook</mat-card-footer>
+    </mat-card>
+}
