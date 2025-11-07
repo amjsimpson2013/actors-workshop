@@ -18,7 +18,7 @@ export const commonRoutes: ExtendedRoutes = [
     {
         path: 'about',
         title: 'About Us',
-        loadComponent: () => import('./home/home'),
+        loadComponent: () => import('./about/about'),
         icon: "diversity_3", 
         description: "Lorem ipsum dolor sit amet consectetur adipiscing elit."
     },

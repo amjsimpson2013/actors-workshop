@@ -50,6 +50,11 @@ body {
   margin: 0; 
   font-family: 
   Playfair Display, "Helvetica Neue", sans-serif;
+
+  @include mat.card-overrides((
+    outlined-outline-color: var(--mat-sys-surface-bright),
+    outlined-container-color: var(--mat-sys-surface-container-lowest)
+  ));
 }
 
 .custom-tab-header {
@@ -118,7 +123,6 @@ body {
 
 .blog-post {
   @include mat.card-overrides((
-    outlined-outline-color: var(--mat-sys-surface-bright),
     title-text-line-height: 1
   ));
 

@@ -1,0 +1,32 @@
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+.mission-text-area {
+    grid-area: 1/1/2/2;
+    text-align: center;
+}
+
+.mission-image {
+    grid-area: 1/2/2/3;
+    overflow: hidden;
+}
+
+.card {
+    margin: 10px 20px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
