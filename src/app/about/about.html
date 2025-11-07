@@ -26,3 +26,16 @@
         </div>
     </mat-card-content>
 </mat-card>
+@for (member of members; track $index) {
+    <mat-card appearance="outlined" class="card member-cards">
+        <mat-card-content class="member-grid">
+            <div class="member-text-area">
+                <div class="text">
+                    <h1>{{member.name}}</h1>    
+                    <p>{{member.description}}</p>
+                </div>
+            </div>
+            <div class="member-image"><img class="image" src="{{member.imageUrl}}"/></div>
+        </mat-card-content>
+    </mat-card>
+}

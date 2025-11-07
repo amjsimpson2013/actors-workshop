@@ -51,3 +51,41 @@
     grid-area: 1/2/2/3;
     overflow: hidden;
 }
+
+.member-cards:nth-child(even) {
+    .member-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 5px;
+    }
+
+    .member-text-area {
+        grid-area: 1/1/2/2;
+        text-align: center;
+    }
+
+    .member-image {
+        grid-area: 1/2/2/3;
+        overflow: hidden;
+        clip-path: circle();
+    }
+}
+
+.member-cards:nth-child(odd) {
+    .member-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 5px;
+    }
+
+    .member-text-area {
+        grid-area: 1/2/2/3;
+        text-align: center;
+    }
+
+    .member-image {
+        grid-area: 1/1/2/2;
+        overflow: hidden;
+        clip-path: circle();
+    }
+}
