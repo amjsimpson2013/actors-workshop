@@ -25,7 +25,7 @@ export const commonRoutes: ExtendedRoutes = [
     {
         path: 'contact',
         title: 'Contact Us',
-        loadComponent: () => import('./home/home'),
+        loadComponent: () => import('./contact/contact'),
         icon: "rate_review", 
         description: "Lorem ipsum dolor sit amet consectetur adipiscing elit."
     }
