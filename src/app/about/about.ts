@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatCard, MatCardContent } from "@angular/material/card";
+import { TeamMembers } from './data-access/models/team-member.model';
 
 @Component({
   selector: 'app-about',
@@ -7,4 +8,6 @@ import { MatCard, MatCardContent } from "@angular/material/card";
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })
-export default class About { }
+export default class About { 
+  members: TeamMembers = TeamMembers;
+}
