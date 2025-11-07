@@ -1,0 +1,46 @@
+<mat-card appearance="outlined" class="contact-card">
+    <mat-card-title class="title">
+        Contact Us
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content class="contact-content">
+        <div class="contact-image"><img class="image" src="assets/logo.png"/></div>
+        <form [formGroup]="contactForm" (ngSubmit)="submit()" class="form">
+            <mat-form-field appearance="outline">
+                <mat-label for="name">Name: </mat-label>
+                <input
+                    matInput
+                    type="text"
+                    formControlName="name"
+                />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label for="email">Email: </mat-label>
+                <input
+                    matInput
+                    type="text"
+                    formControlName="email"
+                />
+                <mat-hint class="email-error">
+                    @if (contactForm.controls['email'].hasError('email') && contactForm.controls['email'].touched) {
+                        Please enter a valid email address
+                    }
+                </mat-hint>  
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="message-text">
+            <mat-label for="message">Message: </mat-label>
+                <textarea
+                    matInput
+                    cdkTextareaAutosize
+                    type="text"
+                    formControlName="message"
+                ></textarea> 
+            </mat-form-field>
+            
+            <button matButton="filled" [disabled]="!contactForm.valid" (click)="submit()">Submit</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+
