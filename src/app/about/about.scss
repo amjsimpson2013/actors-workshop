@@ -30,3 +30,24 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.extra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+.extra-text-area-1 {
+    grid-area: 1/1/2/2;
+    text-align: center;
+}
+
+.extra-text-area-2 {
+    grid-area: 1/3/2/4;
+    text-align: center;
+}
+
+.extra-image {
+    grid-area: 1/2/2/3;
+    overflow: hidden;
+}
