@@ -1,11 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, effect, inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from "@angular/material/divider";
 import { MatIconModule } from '@angular/material/icon';
+import { Email, EmailForm } from './data-access/email.model';
+import { ContactService, EmailStatus } from './data-access/contact-service';
 
 @Component({
   selector: 'app-contact',
@@ -22,15 +24,22 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './contact.scss'
 })
 export default class Contact {
-  private formBuilder = inject(FormBuilder);
+  private contactService: ContactService = inject(ContactService);
+  emailStatus = this.contactService.emailStatus;
+  error = this.contactService.error;
 
-  contactForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    message: ['', Validators.required],
+  status: EmailStatus = 'pending';
+  emailError: string = '';
+
+  contactForm = new FormGroup<EmailForm>({
+    name: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
+    email: new FormControl('', {nonNullable: true, validators: [Validators.required, Validators.email]}),
+    message: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
   });
 
   submit() {
-    console.log(this.contactForm.value);
+    const email: Email = this.contactForm.value as Email;
+    this.contactService.sendEmail$.next(email);
+    this.contactForm.reset();
   }
 }
