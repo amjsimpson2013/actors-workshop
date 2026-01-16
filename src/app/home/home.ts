@@ -1,4 +1,4 @@
-import { Component, inject, Signal } from '@angular/core';
+import { Component, effect, inject, Signal } from '@angular/core';
 import { AdvertComponent } from "./ui/advert-component/advert-component";
 import { MatDividerModule } from '@angular/material/divider';
 import { AdvertisementService } from './data-access/advertisement-service';

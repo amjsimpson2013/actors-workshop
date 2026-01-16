@@ -18,8 +18,8 @@ export class BlogPostComponent {
   }
 
   getFormattedDate(date: Date) {
+    if (date === undefined) return '';
     const formatDate: Date = new Date(date);
-    if (formatDate === undefined) return '';
     return formatDate.toDateString();
   }
 }
