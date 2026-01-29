@@ -1,33 +1,35 @@
-export interface CalendarEvent {
-    kind: string;
-    etag: string;
-    id: string;
-    status: string;
-    htmlLink: string;
-    created: string;
-    updated: string;
-    summary: string;
-    description: string;
-    creator: any;
-    organizer: any;
-    start: any;
-    end: any;
-    recurringEventId: string;
-    originalStartTime: any;
-    iCalUID: string;
-    sequence: number;
-    eventType: string;
+export interface EventSummary {
+    id: number;
+    name: string | null;
+    startDate: Date | undefined;
+    endDate: Date | undefined;
+    thumbnailName: string | null;
+    thumbnailType: string | null;
 }
 
-export interface GCalResponse {
-    kind: string;
-    etag: string;
-    summary: string;
-    description: string;
-    updated: string;
-    timeZone: string;
-    accessRole: string;
-    defaultReminders: string[];
-    nextSyncToken: string;
-    items: CalendarEvent[];
+export interface EventDetail {
+    id: number;
+    name: string | null;
+    description: string | null;
+    startDate: Date | undefined;
+    endDate: Date | undefined;
+    imageName: string | null;
+    imageType: string | null;
+    eventTypeId: number;
+    statusTypeId: number | undefined;
+    reoccurenceTypeId: number | null;
+    thumbnailName: string | null;
+    thumbnailType: string | null;
 }
+
+export interface KeyValueItem {
+    id: number;
+    name: string;
+}
+
+export type EventTypes = KeyValueItem[];
+
+export type EventsByTypes = {
+    type: KeyValueItem,
+    events: EventSummary[]
+};

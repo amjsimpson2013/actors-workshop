@@ -1,20 +1,67 @@
-@if(eventsList().length > 0) {
-    @for (calendarEvent of eventsList(); track $index) {
-        <mat-accordion>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title><mat-icon>event</mat-icon></mat-panel-title>
-                    <mat-panel-description>{{calendarEvent.summary}}</mat-panel-description>
-                </mat-expansion-panel-header>
-                {{calendarEvent.description}}
-            </mat-expansion-panel>
-        </mat-accordion>
+<mat-drawer-container>
+<mat-drawer class="event-detail-drawer" mode="over" (closed)="this.eventsService.clearDetails()">
+    @if (eventDetails() === null || eventDetails() === undefined) {
+        <mat-spinner class="event-loading-spinner" [diameter]="50"></mat-spinner>
     }
-} @else if (error()) {
-    <p><strong>{{error()?.name}} - {{error()?.cause}}</strong></p>
-    <p>{{error()?.message}}</p>
-    <br>
-    <p>{{error()?.stack}}</p>
+
+    @if(eventDetails() !== null) {
+        <h1 class="event-detail-header">{{eventDetails()?.name}}</h1>
+        <div class="event-detail-image-container">
+            <img class="event-detail-image" [src]="getImageUri(eventDetails())">
+        </div>
+        
+        <div class="event-detail-information">
+            <p>{{formatDateTime(eventDetails()?.startDate)}} - {{formatDateTime(eventDetails()?.endDate)}}</p>
+            <p>{{eventDetails()?.description}}</p>
+        </div>
+    } @else if (eventDetailError() !== null) {
+        <p>{{eventDetailError()}}</p>
+    } 
+</mat-drawer>
+<mat-drawer-content>
+@if(currentEvents() && currentEvents().length > 0) {
+    <mat-tab-group class="custom-tab-header" headerPosition="below" mat-stretch-tabs="true" mat-align-tabs="center">
+        @for (event of currentEvents(); track $index) {
+            <mat-tab [label]="event.name ?? ''" class="tab">
+                <div class="content">
+                    <div class="image-container">
+                        <img [src]="getImageThumbnailUri(event)" [alt]="event.name" class="image">
+                    </div>
+                </div>
+                
+            </mat-tab>
+        }
+    </mat-tab-group>
+    
+} @else if (currentEventErrors()) {
+    <p><strong>{{currentEventErrors()}}</strong></p>
 }
-
-
+@if(eventTypes() && eventTypes().length > 0) {
+    @for(type of eventTypes(); track $index) {
+        <div class="type-title">{{type.name}}</div>
+        <mat-divider></mat-divider>
+        <div class="events-by-type">
+            @if(eventsByTypes() && eventsByTypes().length > 0 && getEventsFromType(type).length > 0) {
+            @for(event of getEventsFromType(type); track $index) {
+                <mat-card class="event-cards" appearance="outlined" (click)="getEventDetails(event)">
+                    <mat-card-title class="event-card-title">
+                        <div class="event-image-container">
+                            <img [src]="getImageThumbnailUri(event)" [alt]="event.name" class="event-image">    
+                        </div>
+                    </mat-card-title>
+                    <mat-card-content>
+                        {{event.name}} - {{formatDate(event.startDate)}}
+                        {{formatTime(event.startDate)}} - {{formatTime(event.endDate)}}
+                    </mat-card-content>
+                </mat-card>
+            }
+            } @else if (eventsByTypeError()) {
+                <p><strong>{{eventsByTypeError()}}</strong></p>
+            }   
+        </div> 
+    }
+} @else if (eventsByTypeError()) {
+    <p><strong>{{eventsByTypeError()}}</strong></p>
+}
+</mat-drawer-content>
+</mat-drawer-container>
